@@ -13,7 +13,7 @@
 
 Name:        catalyst-legacy-kmod
 Version:     12.6
-Release:     0.1%{?dist}
+Release:     1%{?dist}
 # Taken over by kmodtool
 Summary:     AMD display legacy driver kernel module
 Group:       System Environment/Kernel
@@ -22,7 +22,7 @@ URL:         http://ati.amd.com/support/drivers/linux/linux-radeon.html
 Source0:     http://www.linux-ati-drivers.homecall.co.uk/catalyst-legacy-kmod-data-%{version}.tar.bz2
 Source11:    catalyst-kmodtool-excludekernel-filterfile
 Patch0:      compat_alloc-Makefile.patch
-Patch1:      amd-3.5.0-missing_do_mmap.patch
+Patch1:      3.5-do_mmap.patch
 BuildRoot:   %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 # needed for plague to make sure it builds for i686
@@ -99,6 +99,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Nov 29 2012 Leigh Scott <leigh123linux@googlemail.com> - 12.6-1
+- Update to Catalyst 12.6 legacy (internal version 8.97.100.3)
+
 * Fri Jul 06 2012 leigh scott <leigh123linux@googlemail.com> - 12.6-0.1
 - Based on xorg-x11-drv-catalyst
 - Update to Catalyst legacy 12.6 beta (internal version 8.97.100.3)
