@@ -101,7 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Sat Jan 19 2013 Leigh Scott <leigh123linux@googlemail.com> - 12.6-2.7
+* Sat Jan 19 2013 Leigh Scott <leigh123linux@googlemail.com> - 12.6-2
 - patch for 3.7 kernel
 
 * Thu Jan 17 2013 Nicolas Chauvet <kwizart@gmail.com> - 12.6-1.7
