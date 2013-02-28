@@ -3,7 +3,7 @@
 # "buildforkernels newest" macro for just that build; immediately after
 # queuing that build enable the macro again for subsequent builds; that way
 # a new akmod package will only get build when a new one is actually needed
-%define buildforkernels newest
+%global buildforkernels newest
 
 # Tweak to have debuginfo - part 1/2
 %if 0%{?fedora} > 7
@@ -13,7 +13,7 @@
 
 Name:        catalyst-legacy-kmod
 Version:     13.1
-Release:     1%{?dist}.5
+Release:     1%{?dist}.6
 # Taken over by kmodtool
 Summary:     AMD display legacy driver kernel module
 Group:       System Environment/Kernel
@@ -101,6 +101,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Feb 28 2013 Nicolas Chauvet <kwizart@gmail.com> - 13.1-1.6
+- Rebuilt for kernel
+
 * Tue Feb 26 2013 Nicolas Chauvet <kwizart@gmail.com> - 13.1-1.5
 - Rebuilt for kernel
 
