@@ -3,7 +3,7 @@
 # "buildforkernels newest" macro for just that build; immediately after
 # queuing that build enable the macro again for subsequent builds; that way
 # a new akmod package will only get build when a new one is actually needed
-%global buildforkernels newest
+%global buildforkernels current
 
 # Tweak to have debuginfo - part 1/2
 %if 0%{?fedora} > 7
@@ -13,7 +13,7 @@
 
 Name:        catalyst-legacy-kmod
 Version:     13.1
-Release:     1%{?dist}.6
+Release:     2%{?dist}
 # Taken over by kmodtool
 Summary:     AMD display legacy driver kernel module
 Group:       System Environment/Kernel
@@ -24,6 +24,7 @@ Source11:    catalyst-kmodtool-excludekernel-filterfile
 Patch0:      compat_alloc-Makefile.patch
 Patch1:      3.5-do_mmap.patch
 Patch2:      3.7_kernel.patch
+Patch3:      3.8_kernel.patch
 BuildRoot:   %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 # needed for plague to make sure it builds for i686
@@ -71,6 +72,7 @@ pushd fglrxpkg
 %patch0 -p0 -b.compat_alloc
 %patch1 -p0 -b.3.5-do_mmap
 %patch2 -p0 -b.3.7_kernel
+%patch3 -p0 -b.3.8_kernel
 popd
 
 for kernel_version  in %{?kernel_versions} ; do
@@ -101,6 +103,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Mar 02 2013 Leigh Scott <leigh123linux@googlemail.com> - 13.1-2
+- Patch for 3.8 kernel
+
 * Thu Feb 28 2013 Nicolas Chauvet <kwizart@gmail.com> - 13.1-1.6
 - Rebuilt for kernel
 
