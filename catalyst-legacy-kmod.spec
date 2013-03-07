@@ -13,7 +13,7 @@
 
 Name:        catalyst-legacy-kmod
 Version:     12.6
-Release:     2%{?dist}.11
+Release:     3%{?dist}
 # Taken over by kmodtool
 Summary:     AMD display legacy driver kernel module
 Group:       System Environment/Kernel
@@ -24,6 +24,7 @@ Source11:    catalyst-kmodtool-excludekernel-filterfile
 Patch0:      compat_alloc-Makefile.patch
 Patch1:      3.5-do_mmap.patch
 Patch2:      3.7_kernel.patch
+Patch3:      3.8_kernel.patch
 BuildRoot:   %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 # needed for plague to make sure it builds for i686
@@ -71,6 +72,7 @@ pushd fglrxpkg
 %patch0 -p0 -b.compat_alloc
 %patch1 -p0 -b.3.5-do_mmap
 %patch2 -p0 -b.3.7_kernel
+%patch3 -p0 -b.3.8_kernel
 popd
 
 for kernel_version  in %{?kernel_versions} ; do
@@ -101,6 +103,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Mar 07 2013 Nicolas Chauvet <kwizart@gmail.com> - 12.6-3
+- Patch for 3.8 kernel
+
 * Sat Mar 02 2013 Nicolas Chauvet <kwizart@gmail.com> - 12.6-2.11
 - Rebuilt for kernel
 
