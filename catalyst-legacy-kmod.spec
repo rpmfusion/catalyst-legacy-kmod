@@ -13,7 +13,7 @@
 
 Name:        catalyst-legacy-kmod
 Version:     13.1
-Release:     2%{?dist}.6
+Release:     2%{?dist}.7
 # Taken over by kmodtool
 Summary:     AMD display legacy driver kernel module
 Group:       System Environment/Kernel
@@ -103,6 +103,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sat Apr 13 2013 Nicolas Chauvet <kwizart@gmail.com> - 13.1-2.7
+- Rebuilt for kernel
+
 * Wed Apr 10 2013 Nicolas Chauvet <kwizart@gmail.com> - 13.1-2.6
 - Rebuilt for kernel
 
